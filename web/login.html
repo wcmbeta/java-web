@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录测试</title>
+    <script type="text/javascript">
+        //        window.onload =
+        function checkImgClick(o) {
+            var date = new Date();
+            o.src = "/checkImg?time="+date.getMilliseconds();
+        }
+    </script>
+</head>
+<body>
+<form action="/water/login" method="post">
+    用户名：<input type="text" name="username"><br/>
+    密码：<input type="password" name="password"><br/>
+    验证码:<input type="text" name="1"><img onclick=(checkImgClick(this)) src="/checkImg"><br/>
+    <input type="submit" value="登录"><br/>
+</form>
+</body>
+</html>
