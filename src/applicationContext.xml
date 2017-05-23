@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--将User交给Spring管理-->
+    <!--方式1 无参构造  p命名空间  SPEL  -->
+    <bean name="user"
+          class="com.water.entity.User"
+          init-method="init"
+          destroy-method="destory"
+          p:email="water@qq.com">
+        <property name="name" value="张三"/>
+        <property name="phone" value="13812344321"/>
+        <!--SPEL-->
+        <property name="age" value="#{user.age}"/>
+
+    </bean>
+    <!--方式2 工厂静态方法创建-->
+    <bean name="user2"
+          class="com.water.spring.UserFactory"
+          factory-method="createUser"></bean>
+    <!--方式3 实例工厂创建-->
+    <bean name="user3"
+          factory-bean="userFactory"
+          factory-method="createUser2"
+    ></bean>
+    <!--工厂bean-->
+    <bean name="userFactory"
+          class="com.water.spring.UserFactory"/>
+
+    <!--jdbc-->
+    <!--指定读取db.properties-->
+    <context:property-placeholder location="classpath:db.properties" />
+    <!--连接池-->
+    <bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--<property name="jdbcUrl" value="jdbc:mysql:///test?useSSL=true"/>-->
+        <!--<property name="user" value="root"/>-->
+        <!--<property name="password" value="dickgo"/>-->
+        <!--<property name="driverClass" value="com.mysql.jdbc.Driver"/>-->
+        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="driverClass" value="${jdbc.driverClass}"/>
+
+    </bean>
+    <!--jdbcTemplate-->
+    <!--<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+    <!--userDao-->
+    <bean name="userDao" class="com.water.dao.UserDaoSpringImpl">
+        <!--<property name="jdbcTemplate" ref="jdbcTemplate"/>-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--加载整个目录-->
+    <context:component-scan base-package="com.water.entity"/>
+</beans>

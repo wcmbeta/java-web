@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--国际化-->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!--指定访问action后缀-->
+    <!--<constant name="struts.action.extension" value="action,,"/>-->
+    <constant name="struts.action.extension" value="action,,"/>
+    <!--是否为开发模式-->
+    <constant name="struts.devMode" value="true"/>
+    <!--包-->
+    <package name="hello" namespace="/hello" extends="struts-default">
+        <!--action-->
+        <action name="HelloAction" class="com.water.struts.HelloAction" method="hello">
+            <result name="success">/hello.jsp</result>
+        </action>
+
+    </package>
+    <!--引入其他配置文件-->
+    <include file="com/water/struts/struts.xml"/>
+</struts>

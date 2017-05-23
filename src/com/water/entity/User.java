@@ -1,10 +1,15 @@
 package com.water.entity;
 
+import com.water.utils.LogUtils;
+
+
 /**
  * Created by Water on 17/4/14.
  * Email:water471871679@gmail.com
  */
 public class User {
+    private static final String TAG = User.class.getSimpleName();
+    //    private static Logger logger = LogManager.getLogger(User.class);
     private String uid;
     private String name;
     private String email;
@@ -25,6 +30,22 @@ public class User {
 
 	private int age;
 	private int id;
+
+	public User() {
+        System.out.println("无参构造方法创建User");
+    }
+
+    public User(String name, String username, String password) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+    }
+    public void init() {
+        LogUtils.info("初始化方法");
+    }
+    public void destory(){
+        LogUtils.info("销毁方法");
+    }
 
     public String getUid() {
         return uid;
@@ -106,13 +127,19 @@ public class User {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"username='" + username + '\'' +
-				", password='" + password + '\'' +
-				", age='" + age + '\'' +
-				", id=" + id +
-				'}';
-	}
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid='" + uid + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", sex='" + sex + '\'' +
+                ", state=" + state +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", age=" + age +
+                ", id=" + id +
+                '}';
+    }
 }

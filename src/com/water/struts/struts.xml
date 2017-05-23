@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--动态常量-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+    <package name="dynamic" namespace="/dynamic" extends="struts-default">
+        <!--&lt;!&ndash;方式一(!add.action)&ndash;&gt;-->
+        <!--<action name="DynamicsAction" class="com.water.struts.DynamicsAction" >-->
+            <!--<result name="success">/hello.jsp</result>-->
+        <!--</action>-->
+
+        <!--方式二(多种方法)-->
+        <!--<action name="DynamicAction_add" class="com.water.struts.DynamicsAction" method="add">-->
+            <!--<result name="success">/hello.jsp</result>-->
+        <!--</action>-->
+        <!--<action name="DynamicAction_delete" class="com.water.struts.DynamicsAction" method="delete">-->
+            <!--<result name="success">/hello.jsp</result>-->
+        <!--</action>-->
+
+        <!--方式三(参数)  *号占位, {1} 取出第一个参数   -->
+        <action name="DynamicsAction_*" class="com.water.struts.DynamicsAction" method="{1}">
+            <result name="success">/hello.jsp</result>
+        </action>
+    </package>
+</struts>

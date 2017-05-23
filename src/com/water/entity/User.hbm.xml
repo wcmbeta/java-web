@@ -19,7 +19,7 @@
                 not-null(可选):配置该属性(列)是否不能为空. 默认值:false
                 length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
          -->
-        <id name="uid"  >
+        <id name="id"  >
             <!-- generator:主键生成策略(明天讲) -->
             <generator class="native"></generator>
         </id>
@@ -34,11 +34,13 @@
         <property name="age" column="age" >
             <!--  <column name="cust_name" sql-type="varchar" ></column> -->
         </property>
-        <property name="phone" column="phone" ></property>
-        <property name="username" column="username" ></property>
-        <property name="sex" column="sex" ></property>
-        <property name="state" column="state" ></property>
-        <property name="password" column="password" ></property>
-        <property name="email" column="email" ></property>
+        <property name="phone" column="phone"/>
+        <property name="username" column="username"/>
+        <property name="name" column="name"/>
+        <property name="sex" column="sex"/>
+        <property name="state" column="state"/>
+        <property name="password" column="password"/>
+        <property name="email" column="email"/>
+        <property name="uid" column="uid"/>
     </class>
 </hibernate-mapping>
