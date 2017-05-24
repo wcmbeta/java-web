@@ -35,8 +35,20 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <!--扩大session的作用范围 要在Struts2之前调用-->
+    <filter>
+        <filter-name>openSeesionInView</filter-name>
+        <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>openSeesionInView</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
     <!--struts2 核心过滤器-->
     <filter>
+        <!--整合Spring-->
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
     </filter>
@@ -44,6 +56,7 @@
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
 
 
 </web-app>
