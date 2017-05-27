@@ -48,4 +48,5 @@ public interface UserDao {
      */
     List<User> getAll();
 
+    User getUserByUserNamePassword(User user);
 }

@@ -1,5 +1,6 @@
-package com.water.dao;
+package com.water.dao.impl;
 
+import com.water.dao.UserDao;
 import com.water.entity.User;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
@@ -77,5 +78,10 @@ public class UserDaoSpringImpl extends JdbcDaoSupport implements UserDao {
     public List<User> getAll() {
         String sql = "select * from user ";
         return super.getJdbcTemplate().query(sql,new Object[]{},new BeanPropertyRowMapper<User>(User.class));
+    }
+
+    @Override
+    public User getUserByUserNamePassword(User user) {
+        return null;
     }
 }

@@ -1,12 +1,18 @@
 package com.water.entity;
 
 import com.water.utils.LogUtils;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 /**
  * Created by Water on 17/4/14.
  * Email:water471871679@gmail.com
  */
+@Component("user")
+@Entity
 public class User {
     private static final String TAG = User.class.getSimpleName();
     //    private static Logger logger = LogManager.getLogger(User.class);
@@ -118,7 +124,7 @@ public class User {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
+    @Id
 	public int getId() {
 		return id;
 	}

@@ -5,6 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <!--整合Spring-->
+    <constant name="struts.objectFactory" value="spring"/>
     <!--国际化-->
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <!--指定访问action后缀-->
@@ -19,7 +21,31 @@
             <result name="success">/hello.jsp</result>
         </action>
 
+
     </package>
+
+    <package name="user" namespace="/" extends="struts-default">
+        <!--异常处理-->
+        <!--<global-results>-->
+        <!--<result name="error"></result>-->
+        <!--</global-results>-->
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.RuntimeException" result="error"></exception-mapping>
+        </global-exception-mappings>
+
+
+        <!--整合Spring来管理action ,class 填写Spring 中的name-->
+        <action name="UserAction_*" class="userAction" method="{1}">
+            <!--<result name="success">/hello.jsp</result>-->
+            <result name="toHome" type="redirect">/index.jsp</result>
+            <result name="error">/login2.jsp</result>
+        </action>
+
+        <action name="CustomerAction_*" class="customerAction" method="{1}">
+            <result name="list">/jsp/customer/list.jsp</result>
+        </action>
+    </package>
+
     <!--引入其他配置文件-->
     <include file="com/water/struts/struts.xml"/>
 </struts>
