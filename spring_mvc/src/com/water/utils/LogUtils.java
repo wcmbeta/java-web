@@ -1,4 +1,4 @@
-package utils;
+package com.water.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

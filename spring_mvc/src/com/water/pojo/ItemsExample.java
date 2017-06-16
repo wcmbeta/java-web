@@ -1,4 +1,4 @@
-package pojo;
+package com.water.pojo;
 
 import java.util.ArrayList;
 import java.util.Date;

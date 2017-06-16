@@ -6,18 +6,36 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--@controller  @service 等扫描-->
-    <context:component-scan base-package="controller"/>
-    <!--启用mvc注解-->
+    <context:component-scan base-package="com.water"/>
+    <!--启用mvc注解驱动-->
     <mvc:annotation-driven/>
+    <!--处理器映射器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
+    <!--处理器控制器-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
     <mvc:default-servlet-handler/>
 
-    <!--视图解析器-->
+    <!-- 配置Conveter转换器  转换工厂 （日期、去掉前后空格）。。 -->
+    <bean id="conversionServiceFactoryBean" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <!-- 配置 多个转换器-->
+        <property name="converters">
+            <list>
+                <bean class="com.water.conversion.DateConveter"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--视图解析器 解析viewName的前后缀-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
 
     </bean>
+
+
 </beans>
