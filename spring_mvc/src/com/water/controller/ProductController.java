@@ -5,6 +5,7 @@ import com.water.pojo.PageBean;
 import com.water.pojo.Product;
 import com.water.utils.LogUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import java.util.List;
  * Created by Water on 2017/6/16.
  * Email:water471871679@gmail.com
  */
+@CrossOrigin(origins = "*", maxAge = 3600)//----注解方式支持跨域
 @Controller
 @RequestMapping(value = "/product")
 public class ProductController {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace 命名空间 用于隔离SQL  -->
+<!--命名空间绑定Mapper代理-->
+<mapper namespace = "com.water.dao.UserMapper">
+    <!--通过id查询一个用户-->
+    <!--                        参数类型                    结果类型                    -->
+    <select id="findUserById" parameterType="Integer" resultType="com.water.pojo.User">
+        SELECT * FROM user WHERE id = #{v}
+    </select>
+</mapper>

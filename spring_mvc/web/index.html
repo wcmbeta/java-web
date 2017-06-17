@@ -3,6 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>欢迎来到wateroot</title>
+    <script type="text/javascript" src="/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url: "http://www.wateroot.com/mvc/product/list.action",
+                dataType:"json",
+                success: function (data) {
+                    console.log(data);
+                },
+                error:function (XMLHttpRequest,error,excption) {
+                    console.log(XMLHttpRequest+"|||||" + error+"|||||" + excption);
+                }
+            });
+        });
+
+
+
+    </script>
+
 </head>
 <body>
     <h1>欢迎来到wateroot!</h1>
