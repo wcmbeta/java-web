@@ -4,9 +4,50 @@
 <!--namespace 命名空间 用于隔离SQL  -->
 <!--命名空间绑定Mapper代理-->
 <mapper namespace = "com.water.dao.UserMapper">
+    <!--
+    #{}     占位符  ? == '广州'
+    ${}     字符串拼接   like '%广州%'
+    -->
+    <!--查询列表需要一个requestMap-->
+    <!--配置一个resultMap 指定返回的类型 -->
+    <resultMap id="BaseMap" type="com.water.pojo.User">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="name" property="name" />
+    </resultMap>
+
+
     <!--通过id查询一个用户-->
     <!--                        参数类型                    结果类型                    -->
     <select id="findUserById" parameterType="Integer" resultType="com.water.pojo.User">
         SELECT * FROM user WHERE id = #{v}
     </select>
+    <!--通过用户名模糊查询-->
+    <!--SQL语句中不要有注释-->
+    <!--SELECT  * FROM user WHERE name LIKE '%${value}%'     不能防止sql注入-->
+    <!--SELECT  * FROM user WHERE name LIKE "%"#{v}"%"     能防sql注入-->
+    <select id="findUserByName" parameterType="String" resultType="com.water.pojo.User">
+        SELECT  * FROM user WHERE name LIKE "%"#{v}"%"
+    </select>
+
+    <!--添加用户-->
+    <!--并返回最新添加对象的id-->
+    <insert id="insertUser" parameterType="com.water.pojo.User" >
+        <selectKey keyProperty = "id" resultType="Integer" order="AFTER">
+          SELECT LAST_INSERT_ID()
+        </selectKey>
+      INSERT INTO user (uid,name,username,password) VALUES (#{uid},#{name},#{username},#{password})
+    </insert>
+
+    <update id="updateUser" parameterType="com.water.pojo.User">
+        UPDATE user SET name = #{name},username = #{username},password = #{password} where id = #{id}
+    </update>
+
+    <!--删除用户-->
+    <delete id="deleteUser" parameterType="com.water.pojo.User">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+
+
 </mapper>
