@@ -1,6 +1,7 @@
 package com.water.test;
 
-import com.water.entity.User;
+import com.water.entity.BaseDict;
+import com.water.entity.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -29,9 +30,9 @@ public class HibernateTest {
         Transaction transaction = session.beginTransaction();
 
         //save
-        User user = new User();
-        user.setName("张龙");
-        session.save(user);
+//        User user = new User();
+//        user.setName("张龙");
+//        session.save(user);
 
         //delete
 //        ArrayList<User> list = (ArrayList<User>) session
@@ -42,6 +43,52 @@ public class HibernateTest {
 //            LogUtils.info(list.get(0).toString());
 //            session.delete(list.get(0));
 //        }
+
+//        //Customer
+        Customer customer = new Customer();
+        customer.setCust_name("测试保存");
+        BaseDict baseDictIndustry = new BaseDict();
+        baseDictIndustry.setDict_id("2");
+        customer.setCust_industry(baseDictIndustry);
+        BaseDict baseDictLevel = new BaseDict();
+        baseDictLevel.setDict_id("12");
+        customer.setCust_level(baseDictLevel);
+        BaseDict baseDictSource = new BaseDict();
+        baseDictSource.setDict_id("18");
+        customer.setCust_source(baseDictSource);
+
+        session.save(customer);
+
+        //delete
+//        ArrayList<Customer> list = (ArrayList<Customer>) session
+//                .createQuery("select customer from customer customer where customer.cust_name like ?")
+//                .setParameter(0, "%测试%")
+//                .list();
+//        if (list != null && !list.isEmpty()) {
+//            LogUtils.info(list.get(0).toString());
+//            session.delete(list.get(0));
+//        }
+
+
+        //Base_Dict
+//        BaseDict baseDictIndustry = new BaseDict();
+//        baseDictIndustry.setDict_id("20");
+//        baseDictIndustry.setDict_type_name("客户来源");
+//        baseDictIndustry.setDict_type_code("005");
+//        baseDictIndustry.setDict_item_name("测试");
+//        baseDictIndustry.setDict_enable('1');
+//        baseDictIndustry.setDict_sort(7);
+//        session.save(baseDictIndustry);
+        //删除
+//        ArrayList<BaseDict> list = (ArrayList<BaseDict>) session
+//                .createQuery("select customer from BaseDict customer where customer.dict_item_name like ?")
+//                .setParameter(0, "%测试%")
+//                .list();
+//        if (list != null && !list.isEmpty()) {
+//            LogUtils.info(list.get(0).toString());
+//            session.delete(list.get(0));
+//        }
+
 
 
         transaction.commit();

@@ -1,13 +1,12 @@
 package com.water.service;
 
 import com.water.dao.UserMapper;
+import com.water.pojo.QueryVo;
 import com.water.pojo.User;
-import org.hibernate.loader.custom.Return;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.RecursiveTask;
 
 /**
  * Created by Water on 2017/6/17.
@@ -24,7 +23,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> selectUsersByName(String name) {
-        return (List<User>) userMapper.findUserByName(name);
+        return userMapper.findUserByName(name);
+    }
+
+    @Override
+    public List<User> selectUsersByQueryVo(QueryVo queryVo) {
+        return userMapper.findUserByQueryVo(queryVo);
     }
 
     @Override
@@ -40,5 +44,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer updateUser(User user) {
         return userMapper.updateUser(user);
+    }
+
+    @Override
+    public Integer countUser() {
+        return userMapper.countUsers();
+    }
+
+    @Override
+    public List<User> userByUsernameAndPassword(User user) {
+        return userMapper.selectUserByUsernameAndPassword(user);
+    }
+
+    @Override
+    public List<User> userByIds(QueryVo vo) {
+        return userMapper.selectUserByIds(vo);
     }
 }

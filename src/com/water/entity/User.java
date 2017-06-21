@@ -3,8 +3,7 @@ package com.water.entity;
 import com.water.utils.LogUtils;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 /**
@@ -125,6 +124,7 @@ public class User {
 		this.age = age;
 	}
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}

@@ -79,8 +79,8 @@
                                                style="WIDTH: 80px" maxLength=50 name="cust_name"
                                                value="${param.cust_name}"></TD>
 
-                                    <TD><INPUT class=button id=sButton2 type=submit
-                                               value=" 筛选 " name=sButton2></TD>
+                                    <TD><INPUT class=button id=sButton3 type=submit
+                                               value=" 筛选 " name=sButton3></TD>
                                 </TR>
                                 </TBODY>
                             </TABLE>
@@ -111,10 +111,10 @@
                                         <s:property value="#cust.cust_name"/>
                                     </TD>
                                     <TD>
-                                        <s:property value="#cust.cust_level"/>
+                                        <s:property value="#cust.cust_level.dict_item_name"/>
                                     </TD>
                                     <TD>
-                                        <s:property value="#cust.cust_source"/>
+                                        <s:property value="#cust.cust_source.dict_item_name"/>
                                     </TD>
                                     <TD>
                                         <s:property value="#cust.cust_linkman"/>
@@ -126,7 +126,7 @@
                                         <s:property value="#cust.cust_mobile"/>
                                     </TD>
                                     <TD>
-                                        <a href="${pageContext.request.contextPath }/customerServlet?method=edit&custId=${customer.cust_id}">修改</a>
+                                        <a href="${pageContext.request.contextPath }/CustomerAction_edit?cust_id=<s:property value="#cust.cust_id" />">修改</a>
                                         &nbsp;&nbsp;
                                         <a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=${customer.cust_id}">删除</a>
                                     </TD>

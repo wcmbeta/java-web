@@ -13,7 +13,7 @@
     <!--@controller  @service 等扫描-->
     <context:component-scan base-package="com.water"/>
     <!--启用mvc注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
     <!--处理器映射器-->
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
     <!--处理器控制器-->

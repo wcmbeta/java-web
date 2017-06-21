@@ -65,8 +65,8 @@
 													<TD><INPUT class=textbox id=sChannel2
 														style="WIDTH: 80px" maxLength=50 name="lkmName"></TD>
 													
-													<TD><INPUT class=button id=sButton2 type=submit
-														value=" 筛选 " name=sButton2></TD>
+													<TD><INPUT class=button id=sButton5 type=submit
+														value=" 筛选 " name=sButton5></TD>
 												</TR>
 											</TBODY>
 										</TABLE>

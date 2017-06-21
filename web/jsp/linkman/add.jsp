@@ -75,8 +75,8 @@
 							</TR>
 							<tr>
 								<td rowspan=2>
-								<INPUT class=button id=sButton2 type=submit
-														value="保存 " name=sButton2>
+								<INPUT class=button id=sButton6 type=submit
+														value="保存 " name=sButton6>
 								</td>
 							</tr>
 						</TABLE>

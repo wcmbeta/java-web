@@ -7,7 +7,7 @@ import com.water.entity.Customer;
  * Created by Water on 17/5/25.
  * Email:water471871679@gmail.com
  */
-public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDao<Customer> {
+public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDao{
 
 //    @Override
 //    public void save(Customer customer) {

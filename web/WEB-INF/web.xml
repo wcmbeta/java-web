@@ -25,6 +25,7 @@
     </context-param>
 
 
+
     <!--login登录-->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -54,8 +55,9 @@
     </filter>
     <filter-mapping>
         <filter-name>struts2</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/ssh/*</url-pattern>
     </filter-mapping>
+
 
 
 

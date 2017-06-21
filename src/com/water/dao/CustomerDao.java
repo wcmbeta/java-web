@@ -1,5 +1,7 @@
 package com.water.dao;
 
-public interface CustomerDao<Customer> extends BaseDao<Customer> {
+import com.water.entity.Customer;
+
+public interface CustomerDao extends BaseDao<Customer> {
 
 }

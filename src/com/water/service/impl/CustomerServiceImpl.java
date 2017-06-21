@@ -16,7 +16,6 @@ import java.util.List;
  * Created by Water on 17/5/26.
  * Email:water471871679@gmail.com
  */
-@Transactional(isolation = Isolation.REPEATABLE_READ,propagation = Propagation.REQUIRED,readOnly = true)
 public class CustomerServiceImpl implements CustomerService{
     @Resource(name = "customerDao")
     private CustomerDao customerDao;
@@ -29,7 +28,6 @@ public class CustomerServiceImpl implements CustomerService{
     public void setCustomerDao(CustomerDao customerDao) {
         this.customerDao = customerDao;
     }
-
     @Override
     public PageBean getPageBean(DetachedCriteria detachedCriteria, Integer currentPage, Integer pageSize) {
         //1.调用DAO查询总记录数
@@ -41,5 +39,23 @@ public class CustomerServiceImpl implements CustomerService{
         //4.列表数据放入pageBean中
         pageBean.setList(list);
         return pageBean;
+    }
+
+    @Override
+    public Customer getById(Long cust_id) {
+        return customerDao.getById(cust_id);
+    }
+
+    @Transactional(isolation = Isolation.REPEATABLE_READ,propagation = Propagation.REQUIRED,readOnly = false)
+    @Override
+    public void save(Customer customer) {
+        //维护Customer与字典的的关系,由Struts自动封装参数
+        //保存
+        customerDao.save(customer);
+    }
+    @Transactional(isolation = Isolation.REPEATABLE_READ,propagation = Propagation.REQUIRED,readOnly = false)
+    @Override
+    public void saveOrUpdate(Customer customer) {
+        customerDao.saveOrUpdate(customer);
     }
 }

@@ -10,7 +10,7 @@
 
 
 	<context:property-placeholder location="classpath:db.properties"/>
-	
+
 	<!-- 数据库连接池 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
@@ -42,13 +42,6 @@
 
 	<!-- 开启注解 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
-	
-	
-	
-	
-	
-	
 	
 
 </beans>

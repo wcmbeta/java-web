@@ -4,7 +4,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
@@ -12,35 +12,12 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/aop
-       http://www.springframework.org/schema/aop/spring-aop.xsd">
+       http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--指定读取db.properties-->
     <context:property-placeholder location="classpath:db.properties" />
+    <!--加载整个目录-->
+    <context:component-scan base-package="com.water.entity*"/>
 
-    <!--管理hibernate-->
-    <!--sessionFactory-->
-    <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <!--配置连接池则由连接池管理连接-->
-        <property name="dataSource" ref="dataSource"/>
-
-        <property name="hibernateProperties" >
-            <props>
-                <!--必选配置 独立配置-->
-                <!--<prop key="hibernate.connection.driver_class">${jdbc.driverClass}</prop>-->
-                <!--<prop key="hibernate.connection.url">${jdbc.jdbcUrl}</prop>-->
-                <!--<prop key="hibernate.connection.username">${jdbc.user}</prop>-->
-                <!--<prop key="hibernate.connection.password">${jdbc.password}</prop>-->
-
-                <!--可选配置-->
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-            </props>
-        </property>
-        <!--引入元数据-->
-        <!--加载整个实体类的包目录-->
-        <property name="packagesToScan" value="com.water.entity"/>
-
-    </bean>
 
     <!--Spring 管理事务-->
     <!--核心事务管理器-->
@@ -60,6 +37,7 @@
             <tx:method name="get*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
             <tx:method name="find*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
             <tx:method name="transfer*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
         </tx:attributes>
 
     </tx:advice>
@@ -74,6 +52,34 @@
 
     <!--开启注解事务-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!--管理hibernate-->
+    <!--sessionFactory-->
+    <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!--配置连接池则由连接池管理连接-->
+        <property name="dataSource" ref="dataSource"/>
+
+        <property name="hibernateProperties" >
+            <props>
+                <!--必选配置 独立配置-->
+                <!--<prop key="hibernate.connection.driver_class">${jdbc.driverClass}</prop>-->
+                <!--<prop key="hibernate.connection.url">${jdbc.jdbcUrl}</prop>-->
+                <!--<prop key="hibernate.connection.username">${jdbc.user}</prop>-->
+                <!--<prop key="hibernate.connection.password">${jdbc.password}</prop>-->
+                <prop key="hibernate.dialect" >org.hibernate.dialect.MySQLDialect</prop>
+                <!--可选配置-->
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+        <!--引入元数据-->
+        <!--加载整个实体类的包目录-->
+        <property name="packagesToScan" value="com.water.entity*"/>
+        <!--<property name="mappingDirectoryLocations" value="classpath:com/water/entity"/>-->
+
+    </bean>
+
 
     <!--将User交给Spring管理-->
     <!--方式1 无参构造  p命名空间  SPEL  -->
@@ -136,14 +142,16 @@
     <bean  name="customerAction" class="com.water.action.CustomerAction" scope="prototype">
         <property name="customerService" ref="customerService"/>
     </bean>
-
-
+    <bean name="baseDictAction" class="com.water.action.BaseDictAction" scope="prototype">
+        <property name="baseDictService" ref="baseDictService"/>
+    </bean>
     <!--service-->
     <bean name="userService" class="com.water.service.impl.UserServiceImpl">
     </bean>
     <bean name="customerService" class="com.water.service.impl.CustomerServiceImpl">
     </bean>
-
+    <bean name="baseDictService" class="com.water.service.impl.BaseDictServiceImpl">
+    </bean>
     <!--dao-->
 
     <bean name="userDao2" class="com.water.dao.impl.UserDaoImpl">
@@ -152,7 +160,11 @@
     <bean name="customerDao" class="com.water.dao.impl.CustomerDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+    <bean name="baseDictDao" class="com.water.dao.impl.BaseDictDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
-    <!--加载整个目录-->
-    <context:component-scan base-package="com.water.entity"/>
+
+
+
 </beans>
