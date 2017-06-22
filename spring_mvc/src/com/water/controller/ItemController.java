@@ -20,14 +20,16 @@ public class ItemController {
     private ItemService itemService;
 
     //包名+类名+方法名
-    @RequestMapping(value = "/itemlist.action")
-    public ModelAndView itemlist(){
+    @RequestMapping(value = "/itemlist")
+    public ModelAndView itemlist()throws Exception{
+
         ModelAndView modelAndView = new ModelAndView();
 //        modelAndView.setView();
 
 //        从MySQL中查询
 
         List<Items> list = itemService.selectItemsList();
+        LogUtils.info("结果:"+list.toString());
 //        for (int i = 0; i<8;i++) {
 //            list.add(new Items(i, "商品" + i, 2000f, new Date(), "最新上市"));
 //        }

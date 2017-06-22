@@ -5,11 +5,35 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <!-- log4j2-begin 需要放在Spring前,否则Spring初始化时找不到Log4j-->
+
+    <context-param>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>classpath:log4j2.xml</param-value>
+    </context-param>
+    <!--&lt;!&ndash;停用3.0自动配置&ndash;&gt;-->
     <!--<context-param>-->
-        <!--<param-name>log4jConfiguration</param-name>-->
-        <!--<param-value>classpath:log4j2.xml</param-value>-->
+        <!--<param-name>isLog4jAutoInitializationDisabled</param-name>-->
+        <!--<param-value>true</param-value>-->
     <!--</context-param>-->
+    <!--&lt;!&ndash;启用2.5配置&ndash;&gt;-->
+    <!--<listener>-->
+        <!--<listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>-->
+    <!--</listener>-->
+    <!--<filter>-->
+        <!--<filter-name>log4jServletFilter</filter-name>-->
+        <!--<filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>log4jServletFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+        <!--<dispatcher>REQUEST</dispatcher>-->
+        <!--<dispatcher>FORWARD</dispatcher>-->
+        <!--<dispatcher>INCLUDE</dispatcher>-->
+        <!--<dispatcher>ERROR</dispatcher>-->
+        <!--<dispatcher>ASYNC</dispatcher>&lt;!&ndash; Servlet 3.0 w/ disabled auto-initialization only; not supported in 2.5 &ndash;&gt;-->
+    <!--</filter-mapping>-->
     <!-- log4j2-end -->
+
     <!--spring配置文件-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -38,7 +62,7 @@
            2.  *.action  *.do    拦截特定结尾的
            3.  /   拦截所有,(.jsp  .css  .png) 推荐
         -->
-        <url-pattern>*.action</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     <!--SpringMVC 结束-->
 
@@ -54,6 +78,6 @@
 
     <filter-mapping>
         <filter-name>encoding</filter-name>
-        <url-pattern>*.action</url-pattern>
+        <url-pattern>/</url-pattern>
     </filter-mapping>
 </web-app>

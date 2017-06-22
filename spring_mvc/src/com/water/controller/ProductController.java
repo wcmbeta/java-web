@@ -37,7 +37,7 @@ public class ProductController {
     };
 
 
-    @RequestMapping("/list.action")
+    @RequestMapping("/list")
     public void list(HttpServletRequest req, HttpServletResponse rep)throws Exception{
         rep.setContentType("application/json;charset=UTF-8");//防止数据传递乱码
         rep.setHeader("Content-type", "text/json;charset=UTF-8");

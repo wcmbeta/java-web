@@ -24,7 +24,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/userById.action")
+    @RequestMapping("/userById")
     private void findUserByid(HttpServletRequest req, HttpServletResponse rep) throws Exception {
         rep.setCharacterEncoding("UTF-8");
         rep.setContentType("application/json;charset=UTF-8");//防止数据传递乱码
@@ -41,7 +41,7 @@ public class UserController {
         writer.close();
     }
 
-    @RequestMapping("/userByUsername.action")
+    @RequestMapping("/userByUsername")
     private void findUserByUsername(HttpServletRequest req, HttpServletResponse rep) throws Exception {
         rep.setCharacterEncoding("UTF-8");
         rep.setContentType("application/json;charset=UTF-8");//防止数据传递乱码
@@ -66,7 +66,7 @@ public class UserController {
         writer.close();
     }
 
-    @RequestMapping("/insertUser.action")
+    @RequestMapping("/insertUser")
     private void insertUser(HttpServletRequest req, HttpServletResponse rep) throws Exception {
         rep.setCharacterEncoding("UTF-8");
         rep.setContentType("application/json;charset=UTF-8");//防止数据传递乱码
@@ -85,7 +85,7 @@ public class UserController {
         writer.close();
     }
 
-    @RequestMapping("/deleteUser.action")
+    @RequestMapping("/deleteUser")
     private void deleteUser(HttpServletRequest req, HttpServletResponse rep) throws Exception {
         rep.setCharacterEncoding("UTF-8");
         rep.setContentType("application/json;charset=UTF-8");//防止数据传递乱码
@@ -108,7 +108,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/updateUser.action")
+    @RequestMapping("/updateUser")
     private void updateUser(HttpServletRequest req, HttpServletResponse rep) throws Exception {
         rep.setCharacterEncoding("UTF-8");
         rep.setContentType("application/json;charset=UTF-8");//防止数据传递乱码
@@ -132,7 +132,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/userByQueryVo.action")
+    @RequestMapping("/userByQueryVo")
     private void findUserByQueryVo(HttpServletRequest req, HttpServletResponse rep) throws Exception {
         Utils.setResponse(rep);
         QueryVo vo = new QueryVo();
@@ -163,7 +163,7 @@ public class UserController {
      * @param response
      * @throws Exception
      */
-    @RequestMapping("/userCount.action")
+    @RequestMapping("/userCount")
     private void userCount(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Utils.setResponse(response);
         Integer count = userService.countUser();
@@ -181,7 +181,7 @@ public class UserController {
         writer.close();
     }
 
-    @RequestMapping("/userByUP.action")
+    @RequestMapping("/userByUP")
     private void findUserByUsernameAndPassword(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Utils.setResponse(response);
         User u = new User();
@@ -201,7 +201,7 @@ public class UserController {
 
         writer.flush();
         writer.close();
-    }@RequestMapping("/userByIds.action")
+    }@RequestMapping("/userByIds")
     private void findUserByIds(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Utils.setResponse(response);
         QueryVo vo = new QueryVo();

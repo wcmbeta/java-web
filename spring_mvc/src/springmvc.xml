@@ -37,5 +37,15 @@
 
     </bean>
 
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"></mvc:mapping>
+            <bean class="com.water.interceptor.CustomHandlerInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--异常处理器-->
+    <bean class="com.water.exception.CustomExceptionResolver"/>
 
 </beans>

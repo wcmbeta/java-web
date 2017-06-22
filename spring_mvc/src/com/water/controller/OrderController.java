@@ -21,7 +21,7 @@ import java.util.List;
 public class OrderController {
     @Autowired
     private OrdersService ordersService;
-    @RequestMapping("/orderWithUser.action")
+    @RequestMapping("/orderWithUser")
     private void orderWithUser(HttpServletRequest request, HttpServletResponse response)throws Exception{
         Utils.setResponse(response);
         List<Orders> list = ordersService.selectOrdersWithUser();
