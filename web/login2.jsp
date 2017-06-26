@@ -74,7 +74,7 @@ style="LEFT: 0px; POSITION: absolute; TOP: 0px; BACKGROUND-COLOR: #0066ff"></DIV
                   style="WIDTH: 130px" name=checkCode></TD>
                 <TD style="HEIGHT: 28px">&nbsp;</TD></TR>
               <TR>
-                <TD style="HEIGHT: 18px" colspan="2" ><font color="red" ><s:property value="exception.message" /> </font></TD>
+                <TD style="HEIGHT: 18px" colspan="2" ><font color="red" ><s:property value="exception.msg" /> </font></TD>
                 <TD style="HEIGHT: 18px"></TD></TR>
               <TR>
                 <TD></TD>

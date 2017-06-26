@@ -54,6 +54,11 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:springmvc.xml</param-value>
         </init-param>
+        <!--启动模式
+            >=0 SpringMvc随容器启动而启动
+            <0  第一次请求进来时启动
+        -->
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>

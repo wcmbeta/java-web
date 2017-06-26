@@ -2,20 +2,477 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>测试JS交互</title>
+    <script src="../../web/js/jquery-1.4.4.min.js"></script>
 </head>
-<body>
-    <div class="container">
-        <!--security="restricted"-->
-        <iframeset cols="50%,50%">
-            <iframe src="https://wx2.qq.com/"
-                    frameborder="1"   height="800"
-            ></iframe>
-            <iframe src="https://wx2.qq.com/"
-                    frameborder="1"   height="800"
-            ></iframe>
-        </iframeset>
+<style type="text/css">
+    /*::-webkit-scrollbar {*/
+        /*width: 0px*/
+    /*}*/
 
+    .table {
+        /*table-layout: fixed;*/
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    .fixedThead {
+        position: fixed;
+        display: block;
+        width: 100%;
+    }
+
+    .scrollTbody {
+        display: block;
+        height: 262px;
+        overflow: auto;
+        width: 100%;
+    }
+
+    .table td
+        /*, .table th*/
+    {
+        width: 200px;
+        border-bottom: none;
+        border-left: none;
+        border-right: 1px solid #CCC;
+        border-top: 1px solid #DDD;
+        padding: 2px 3px 3px 4px
+    }
+
+    .table tr {
+        border-left: 1px solid #EB8;
+        border-bottom: 1px solid #B74;
+    }
+
+    /*thead.fixedThead tr th:last-child {*/
+    /*color: #FF0000;*/
+    /*width: 218px;*/
+    /*}*/
+
+    .scroll {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .scroll-son {
+        overflow-x: hidden;
+    }
+</style>
+<script>
+    function share() {
+        android.doShare("分享", "分享一个链接", "www.baidu.com", "www.baidu.com/img/baidu_jgylogo3.gif");
+    }
+
+</script>
+<body>
+<input style="height: 34px ;width: 100px" type="button" onclick="share()" value="分享">
+<table class="table">
+    <thead class="fixedThead">
+    <tr>
+        <th>header</th>
+        <th>header two</th>
+    </tr>
+    </thead>
+
+    <tbody class="scrollTbody">
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+    <tr>
+        <td>fuck 1</td>
+        <td>fuck 2</td>
+    </tr>
+
+    </tbody>
+</table>
+
+
+<div style="height: 300px;  width: 120px; background:red" class="scroll">
+    <div style="height:100%; width: 140px;" class="scroll-son">
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
     </div>
+</div>
+
+<ul>
+    1
+</ul>
+<ul>
+    2
+</ul>
+<ul>
+    3
+</ul>
+<ul>
+    4
+</ul>
+<ul>
+    5
+</ul>
+<ul>
+    6
+</ul>
+<ul>
+    1
+</ul>
+<ul>
+    2
+</ul>
+<ul>
+    3
+</ul>
+<ul>
+    4
+</ul>
+<ul>
+    5
+</ul>
+<ul>
+    6
+</ul>
+<ul>
+    1
+</ul>
+<ul>
+    2
+</ul>
+<ul>
+    3
+</ul>
+<ul>
+    4
+</ul>
+<ul>
+    5
+</ul>
+<ul>
+    6
+</ul>
+<ul>
+    1
+</ul>
+<ul>
+    2
+</ul>
+<ul>
+    3
+</ul>
+<ul>
+    4
+</ul>
+<ul>
+    5
+</ul>
+<ul>
+    6
+</ul>
+<ul>
+    1
+</ul>
+<ul>
+    2
+</ul>
+<ul>
+    3
+</ul>
+<ul>
+    4
+</ul>
+<ul>
+    5
+</ul>
+<ul>
+    6
+</ul>
+<script>
+    var ul = document.getElementsByTagName('ul');
+    //    console.log(ul.length);
+    //    for(var i = 0;i<ul.length;i++) {
+    //        if (i>4){
+    //            ul[i].style.display = "none";
+    //        }
+    //    }
+
+    $(function () {
+        var $th = $("table>thead>tr>th");
+        console.log($th.length);
+        var $td =$("table>tbody>tr:first>td:first");
+        for (var i = 0; i < $th.length; i++) {
+//        $th[i].style.width = $("table>tbody>tr:last").eq($(this).index()).width();
+            console.log("th:" + $th[i].style.width);
+            console.log("$td:" + $td.width());
+            console.log("$td:" + $td.length);
+
+//            console.log("$td:" + $("table>tbody>tr:first>$td:first").width);
+            $th[i].width = $td.width();
+            console.log("th:" + $th.width());
+            console.log("after-th:" + $th[i].style.width);
+        }
+    });
+
+
+</script>
+</table>
 </body>
 </html>

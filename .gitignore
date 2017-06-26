@@ -3,10 +3,29 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
+# Package Files #sss
 *.jar
 *.war
 *.ear
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.idea/dataSources.local.xml
+.idea/dataSources/
+.idea/dictionaries/
+.idea/encodings.xml
+.idea/inspectionProfiles/
+.idea/kotlinc.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+E:/
+libs/
+out/
+spring_mvc/web/WEB-INF/lib/
+src/com/water/spring_mvc/
+target/
+web/WEB-INF/jsp/
+web/WEB-INF/lib/
+web/upload/
